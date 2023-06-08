@@ -1,0 +1,1 @@
+// Contexto responsável pelas informações do carrinho
