@@ -1,7 +1,7 @@
-export function Checkout() {
+export function ProductCard() {
     return (
         <h1>Teste</h1>
     );
 }
 
-// Pedro
+// Nicolas
