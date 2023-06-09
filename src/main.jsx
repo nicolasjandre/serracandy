@@ -8,6 +8,7 @@ import { Contato } from "./routes/Contato";
 import { Shop } from "./routes/Shop";
 import { Sobre } from "./routes/Sobre";
 import { Checkout } from "./routes/Checkout";
+import { Produto } from './routes/Produto';
 import theme from "./styles/theme"
 import { ThemeProvider } from "@mui/material";
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     {
         path: "/checkout",
         element: <Checkout />,
+    },
+    {
+        path: "/produto",
+        element: <Produto />,
     },
 ]);
 
