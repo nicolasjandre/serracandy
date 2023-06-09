@@ -1,6 +1,11 @@
+import { Header } from "../../components/Header";
+
 export function Produto() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1>Produto</h1>
+        </>
     );
 }
 

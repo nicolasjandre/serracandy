@@ -1,5 +1,13 @@
+import { Header } from "../../components/Header";
+
 export function Sobre() {
-    return <h1>Teste</h1>;
+    return (
+        <>
+            <Header />
+            <h1>Sobre</h1>
+        </>
+    );
 }
+
 
 // Hechellin

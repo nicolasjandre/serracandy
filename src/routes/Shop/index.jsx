@@ -1,5 +1,10 @@
+import { Header } from "../../components/Header";
+
 export function Shop() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1>Shop</h1>
+        </>
     );
 }

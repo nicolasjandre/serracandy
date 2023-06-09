@@ -1,6 +1,11 @@
+import { Header } from "../../components/Header";
+
 export function Cadastro() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1>Cadastro</h1>
+        </>
     );
 }
 

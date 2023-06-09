@@ -1,6 +1,12 @@
+import { Header } from "../../components/Header";
+
+
 export function Checkout() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1>Carrinho de compras</h1>
+        </>
     );
 }
 

@@ -1,6 +1,11 @@
+import { Header } from "../../components/Header";
+
 export function Contato() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1>Contato</h1>
+        </>
     );
 }
 
