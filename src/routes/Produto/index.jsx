@@ -1,6 +1,13 @@
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+
 export function Produto() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1> Produto </h1>
+            <Footer />
+        </>
     );
 }
 

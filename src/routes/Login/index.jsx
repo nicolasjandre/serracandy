@@ -1,7 +1,13 @@
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+
 export function Login() {
     return (
-        <h1>Teste</h1>
+        <>
+            <Header />
+            <h1> login </h1>
+            <Footer />
+        </>
     );
 }
-
 // Joana
