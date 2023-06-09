@@ -14,15 +14,16 @@ export function Home() {
 
                 <Box>
                     <Typography
-                        marginY="2.5vw"
+                        marginY="2vw"
                         textAlign="center"
-                        fontSize="4rem"
+                        fontSize="3rem"
                         fontFamily="Montserrat"
                     >
                         Nossos destaques
                     </Typography>
                     <Stack
-                        gap="30px"
+                        columnGap="100px"
+                        rowGap="40px"
                         flexWrap="wrap"
                         justifyContent="space-evenly"
                         flexDirection="row"

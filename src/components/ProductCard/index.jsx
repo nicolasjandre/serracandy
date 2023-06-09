@@ -2,15 +2,14 @@ import { Box, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { DefaultButton } from "../../components/DefaultButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { grey } from "@mui/material/colors";
 
 export function ProductCard({ imgAlt, imgSrc, favorite }) {
     return (
-        <Box width="460px">
+        <Box width="400px">
             <Box
                 component="img"
                 sx={{
-                    height: "440px",
+                    height: "350px",
                     width: "100%",
                 }}
                 alt={imgAlt}
@@ -23,10 +22,10 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                 height="50px"
                 width="100%"
             >
-                <Typography fontFamily="Montserrat" fontSize="1.5rem">
+                <Typography fontFamily="Montserrat" fontSize="1.2rem">
                     Nome do produto
                 </Typography>
-                <Typography fontFamily="Montserrat" fontSize="2rem">
+                <Typography fontFamily="Montserrat" fontSize="1.6rem">
                     R$19,99
                 </Typography>
             </Box>
@@ -37,7 +36,7 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                 height="50px"
                 width="100%"
             >
-                <Typography fontFamily="Montserrat" fontSize="1.5rem">
+                <Typography fontFamily="Montserrat" fontSize="1.2rem">
                     17 Favoritos
                 </Typography>
                 <FavoriteIcon
