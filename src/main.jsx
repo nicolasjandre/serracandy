@@ -8,6 +8,8 @@ import { Contato } from "./routes/Contato";
 import { Shop } from "./routes/Shop";
 import { Sobre } from "./routes/Sobre";
 import { Checkout } from "./routes/Checkout";
+import theme from "./styles/theme"
+import { ThemeProvider } from "@mui/material";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+        </ThemeProvider>
     </React.StrictMode>
 );
