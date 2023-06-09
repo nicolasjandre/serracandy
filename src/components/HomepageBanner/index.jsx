@@ -1,18 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { DefaultButton } from "../../components/DefaultButton";
 
-export function HomepageBanner() {
+export function HomepageBanner({ imgAlt }) {
     return (
         <Box display="flex" justifyContent="center" position="relative">
             <Box
                 component="img"
                 sx={{
                     height: "auto",
-                    width: "97%",
+                    width: "100%",
                     maxHeight: "700px",
                     maxWidth: "1858px",
                 }}
-                alt="The house from the offer."
+                alt={imgAlt}
                 src="public/images/home.jpg"
             />
             <Box textAlign="center" position="absolute" bottom="20%">
