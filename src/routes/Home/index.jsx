@@ -14,7 +14,7 @@ export function Home() {
 
                 <Box>
                     <Typography
-                        marginY="2vw"
+                        marginY="1vw"
                         textAlign="center"
                         fontSize="3rem"
                         fontFamily="Montserrat"
