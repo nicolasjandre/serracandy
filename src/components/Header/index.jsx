@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
-import './index.css';
+import './style.css';
 export function Header() {
     return (
         <div className='container'>
