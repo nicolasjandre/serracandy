@@ -1,21 +1,16 @@
-import { Button, Stack } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { HomepageBanner } from "../../components/HomepageBanner";
 
 export function Home() {
     return (
-        <Stack gap={"10px"} width={"500px"} margin={"auto"}>
-            <Button color="success" variant="contained">
-                Teste
-            </Button>
-            <Button color="warning" variant="contained">
-                Teste
-            </Button>
-            <Button color="error" variant="contained">
-                Teste
-            </Button>
-            <ShoppingCartIcon color="success" fontSize="large" />
-            <Button variant="contained">Teste</Button>
-        </Stack>
+        <>
+            <Header />
+
+            <HomepageBanner />
+
+            <Footer />
+        </>
     );
 }
 
