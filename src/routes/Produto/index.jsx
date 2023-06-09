@@ -1,7 +1,7 @@
-export function Checkout() {
+export function Produto() {
     return (
         <h1>Teste</h1>
     );
 }
 
-// Pedro
+// Marlon
