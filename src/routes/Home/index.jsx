@@ -1,14 +1,50 @@
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { HomepageBanner } from "../../components/HomepageBanner";
+import { ProductCard } from "../../components/ProductCard";
+import { Box, Stack, Typography } from "@mui/material";
+import { DefaultButton } from "../../components/DefaultButton";
 
 export function Home() {
     return (
         <>
-            <Header />
+            <Box padding="20px">
+                <Header />
 
-            <HomepageBanner />
+                <HomepageBanner imgAlt={null} />
 
+                <Box>
+                    <Typography
+                        marginY="1vw"
+                        textAlign="center"
+                        fontSize="3rem"
+                        fontFamily="Montserrat"
+                    >
+                        Nossos destaques
+                    </Typography>
+                    <Stack
+                        columnGap="100px"
+                        rowGap="40px"
+                        flexWrap="wrap"
+                        justifyContent="space-evenly"
+                        flexDirection="row"
+                    >
+                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
+                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
+                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
+                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
+                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
+                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
+                    </Stack>
+                    <Box display="flex" justifyContent="center" my="4vw">
+                        <DefaultButton>
+                            <Typography fontSize="1.5vw" width="20vw" maxWidth="280px">
+                                VER TODOS
+                            </Typography>
+                        </DefaultButton>
+                    </Box>
+                </Box>
+            </Box>
             <Footer />
         </>
     );
