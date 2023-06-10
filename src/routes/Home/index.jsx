@@ -3,6 +3,7 @@ import { Footer } from "../../components/Footer";
 import { HomepageBanner } from "../../components/HomepageBanner";
 import { ProductCard } from "../../components/ProductCard";
 import { Box, Stack, Typography } from "@mui/material";
+import { DefaultButton } from "../../components/DefaultButton";
 
 export function Home() {
     return (
@@ -35,6 +36,13 @@ export function Home() {
                         <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
                         <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
                     </Stack>
+                    <Box display="flex" justifyContent="center" my="4vw">
+                        <DefaultButton>
+                            <Typography fontSize="1.5vw" width="20vw" maxWidth="280px">
+                                VER TODOS
+                            </Typography>
+                        </DefaultButton>
+                    </Box>
                 </Box>
             </Box>
             <Footer />
