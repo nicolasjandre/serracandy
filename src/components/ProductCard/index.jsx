@@ -2,8 +2,9 @@ import { Box, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { DefaultButton } from "../../components/DefaultButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { formatPreco } from "../../utils/formatPreco";
 
-export function ProductCard({ imgAlt, imgSrc, favorite }) {
+export function ProductCard({ product, user }) {
     return (
         <Box width="400px">
             <Box
@@ -12,8 +13,8 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                     height: "350px",
                     width: "100%",
                 }}
-                alt={imgAlt}
-                src={imgSrc ? imgSrc : "public/images/noimage.png"}
+                alt={product.imgAlt}
+                src={product.imgUrl ? product.imgUrl : "public/images/noimage.png"}
             />
             <Box
                 display="flex"
@@ -23,10 +24,10 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                 width="100%"
             >
                 <Typography fontFamily="Montserrat" fontSize="1.2rem">
-                    Nome do produto
+                    {product.nome}
                 </Typography>
                 <Typography fontFamily="Montserrat" fontSize="1.6rem">
-                    R$19,99
+                    {formatPreco(product.preco)}
                 </Typography>
             </Box>
             <Box
@@ -37,12 +38,12 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                 width="100%"
             >
                 <Typography fontFamily="Montserrat" fontSize="1.2rem">
-                    17 Favoritos
+                    {product.feedbacksPositivos} Favoritos
                 </Typography>
                 <FavoriteIcon
                     sx={{ fontSize: "2.5rem", cursor: "pointer" }}
                     // @ts-ignore
-                    color={favorite ? "error" : "grey"}
+                    color={ user && user.favorite ? "error" : "grey"}
                 />
             </Box>
             <Box
@@ -59,10 +60,10 @@ export function ProductCard({ imgAlt, imgSrc, favorite }) {
                     // @ts-ignore
                     color="orange"
                     aria-label="Adicionar ao carrinho"
+                    sx={{ padding: "0" }}
                 >
                     <AddShoppingCartIcon
                         sx={{
-                            padding: "0",
                             fontSize: "2.5rem",
                             cursor: "pointer",
                             ":hoverbackgroundColor": "red",
