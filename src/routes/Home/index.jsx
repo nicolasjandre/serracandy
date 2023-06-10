@@ -4,8 +4,16 @@ import { HomepageBanner } from "../../components/HomepageBanner";
 import { ProductCard } from "../../components/ProductCard";
 import { Box, Stack, Typography } from "@mui/material";
 import { DefaultButton } from "../../components/DefaultButton";
+import { useMostFavoritedProducts } from "../../hooks/useProducts";
+import { useEffect, useState } from "react";
 
 export function Home() {
+    const [products, setProducts] = useState([]);
+    
+    useEffect(() => {
+        useMostFavoritedProducts().then((products) => setProducts(products));
+    }, [])
+
     return (
         <>
             <Box padding="20px">
@@ -29,12 +37,10 @@ export function Home() {
                         justifyContent="space-evenly"
                         flexDirection="row"
                     >
-                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
-                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
-                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
-                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
-                        <ProductCard favorite={true} imgAlt={null} imgSrc={null} />
-                        <ProductCard favorite={false} imgAlt={null} imgSrc={null} />
+                        {products.map((product) => (
+                            // @ts-ignore
+                            <ProductCard key={product.id} product={product} user={null} />
+                        ))}
                     </Stack>
                     <Box display="flex" justifyContent="center" my="4vw">
                         <DefaultButton>
