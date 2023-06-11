@@ -3,19 +3,27 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { DefaultButton } from "../../components/DefaultButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { formatPreco } from "../../utils/formatPreco";
+import { Link } from "react-router-dom";
 
 export function ProductCard({ product, user }) {
     return (
         <Box width="400px">
-            <Box
-                component="img"
-                sx={{
-                    height: "350px",
-                    width: "100%",
-                }}
-                alt={product.imgAlt}
-                src={product.imgUrl ? product.imgUrl : "public/images/noimage.png"}
-            />
+            <Link to={`/produto/${product.id}`}>
+                <Box
+                    component="img"
+                    sx={{
+                        ":hover": {
+                            scale: "1.04",
+                        },
+                        height: "350px",
+                        width: "100%",
+                        cursor: "pointer",
+                        transitionDuration: "250ms",
+                    }}
+                    alt={product.imgAlt}
+                    src={product.imgUrl ? product.imgUrl : "public/images/noimage.png"}
+                />
+            </Link>
             <Box
                 display="flex"
                 justifyContent="space-between"
@@ -43,7 +51,7 @@ export function ProductCard({ product, user }) {
                 <FavoriteIcon
                     sx={{ fontSize: "2.5rem", cursor: "pointer" }}
                     // @ts-ignore
-                    color={ user && user.favorite ? "error" : "grey"}
+                    color={user && user.favorite ? "error" : "grey"}
                 />
             </Box>
             <Box
@@ -53,8 +61,16 @@ export function ProductCard({ product, user }) {
                 height="50px"
                 width="100%"
             >
-                <DefaultButton sx={{ fontFamily: "Montserrat", width: "60%" }}>
-                    Comprar
+                <DefaultButton
+                    href={`/produto/${product.id}`}
+                    sx={{
+                        fontFamily: "Montserrat",
+                        width: "60%",
+                        textDecoration: "none",
+                        textAlign: "center",
+                    }}
+                >
+                    Ver detalhes
                 </DefaultButton>
                 <IconButton
                     // @ts-ignore

@@ -9,16 +9,15 @@ import { useEffect, useState } from "react";
 
 export function Home() {
     const [products, setProducts] = useState([]);
-    
+
     useEffect(() => {
         useMostFavoritedProducts().then((products) => setProducts(products));
-    }, [])
+    }, []);
 
     return (
         <>
+            <Header />
             <Box padding="20px">
-                <Header />
-
                 <HomepageBanner imgAlt={null} />
 
                 <Box>
@@ -43,8 +42,13 @@ export function Home() {
                         ))}
                     </Stack>
                     <Box display="flex" justifyContent="center" my="4vw">
-                        <DefaultButton>
-                            <Typography fontSize="1.5vw" width="20vw" maxWidth="280px">
+                        <DefaultButton sx={{ textDecoration: "none" }} href="/shop">
+                            <Typography
+                                textAlign="center"
+                                fontSize="1.5vw"
+                                width="20vw"
+                                maxWidth="280px"
+                            >
                                 VER TODOS
                             </Typography>
                         </DefaultButton>
