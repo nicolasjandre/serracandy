@@ -1,11 +1,20 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { DefaultButton } from "../../components/DefaultButton";
+import { DefaultButton } from "../DefaultButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { formatPreco } from "../../utils/formatPreco";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
+import { useContext } from "react";
 
-export function ProductCard({ product, user }) {
+export function HomeShopProductCard({ product, user }) {
+    const { setCartModalOpen, addToCart } = useContext(CartContext);
+
+    function handleAddToCart(prod) {
+        addToCart(prod);
+        setCartModalOpen(true);
+    }
+
     return (
         <Box width="400px">
             <Link to={`/produto/${product.id}`}>
@@ -73,6 +82,7 @@ export function ProductCard({ product, user }) {
                     Ver detalhes
                 </DefaultButton>
                 <IconButton
+                    onClick={() => handleAddToCart(product)}
                     // @ts-ignore
                     color="orange"
                     aria-label="Adicionar ao carrinho"

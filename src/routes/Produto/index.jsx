@@ -3,7 +3,7 @@ import { Footer } from "../../components/Footer";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../hooks/useProducts";
-import { Box, Input, Link, Stack, Typography } from "@mui/material";
+import { Box, useMediaQuery, Link, Stack, TextField, Typography } from "@mui/material";
 import { formatPreco } from "../../utils/formatPreco";
 import { DefaultButton } from "../../components/DefaultButton";
 
@@ -100,28 +100,45 @@ export function Produto() {
                         </Typography>
 
                         <Box height="100%" display="flex" justifyContent="center" alignItems="end">
-                            <Input
-                                defaultValue={1}
-                                inputComponent={}
-                                sx={{
-                                    width: "20%",
-                                    backgroundColor: "orange",
-                                    fontFamily: "Montserrat",
-                                    textAlign: "center",
-                                    justifyContent: "center",
-                                }}
-                            />
-                            <DefaultButton
-                                sx={{
-                                    fontFamily: "Montserrat",
-                                    width: "100%",
-                                    minHeight: "40px",
-                                    maxHeight: "3.5vw",
-                                    fontSize: "clamp(1rem, 1.5vw, 2rem)",
-                                }}
-                            >
-                                Comprar
-                            </DefaultButton>
+                            <Box display="flex" minHeight="40px" maxHeight="3.5vw" width="100%">
+                                <TextField
+                                    id="Qtd"
+                                    label="Qtd"
+                                    type="number"
+                                    defaultValue="1"
+                                    size={
+                                        // @ts-ignore
+                                        useMediaQuery((theme) => theme.breakpoints.down("xl"))
+                                            ? "small"
+                                            : "medium"
+                                    }
+                                    // @ts-ignore
+                                    color="orange"
+                                    variant="filled"
+                                    // @ts-ignore
+                                    inputProps={{
+                                        style: {
+                                            maxHeight: "100%",
+                                            fontSize: "1vw",
+                                            fontFamily: "Montserrat",
+                                        },
+                                    }}
+                                    InputLabelProps={{
+                                        style: { fontSize: "1vw", fontFamily: "Montserrat" },
+                                    }}
+                                />
+
+                                <DefaultButton
+                                    sx={{
+                                        fontFamily: "Montserrat",
+                                        width: "100%",
+
+                                        fontSize: "clamp(1rem, 1.5vw, 2rem)",
+                                    }}
+                                >
+                                    Comprar
+                                </DefaultButton>
+                            </Box>
                         </Box>
                     </Stack>
                 </Box>

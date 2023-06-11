@@ -8,7 +8,6 @@ export const useProducts = async () => {
 
 export const getProductById = async (id) => {
     const response = await api.get(`/produtos/${id}`);
-    console.log(response)
     return response.data;
 };
 

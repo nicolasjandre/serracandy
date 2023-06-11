@@ -8,9 +8,11 @@ import { Contato } from "./routes/Contato";
 import { Shop } from "./routes/Shop";
 import { Sobre } from "./routes/Sobre";
 import { Checkout } from "./routes/Checkout";
-import { Produto } from './routes/Produto';
-import theme from "./styles/theme"
+import { Produto } from "./routes/Produto";
+import theme from "./styles/theme";
 import { ThemeProvider } from "@mui/material";
+import { CartContextProvider } from "./contexts/CartContext";
+import { CartModal } from "./components/Modal/CartModal";
 
 const router = createBrowserRouter([
     {
@@ -50,7 +52,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
-            <RouterProvider router={router} />
+            <CartContextProvider>
+                <CartModal />
+                <RouterProvider router={router} />
+            </CartContextProvider>
         </ThemeProvider>
     </React.StrictMode>
 );
