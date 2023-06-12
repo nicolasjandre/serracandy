@@ -40,7 +40,7 @@ export function Produto() {
     return (
         <>
             <Header />
-            <Box padding="20px">
+            <Box padding="20px" mb="5vw">
                 <Box maxWidth="1000px" mx="auto" mt="3vw" mb="2vw">
                     <Link
                         href="/shop"
