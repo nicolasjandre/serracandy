@@ -11,7 +11,7 @@ export function CartProductCard({ product }) {
         if (input.value <= 0) input.value = 1;
         if (input.value > product.quantidade) input.value = product.quantidade;
 
-        addToCartByInputQuantity(product, input.value);
+        addToCartByInputQuantity(product, parseInt(input.value));
     }
 
     function handleRemoveProductFromCart() {

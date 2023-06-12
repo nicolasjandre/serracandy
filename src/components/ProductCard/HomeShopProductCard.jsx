@@ -8,10 +8,10 @@ import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 
 export function HomeShopProductCard({ product, user }) {
-    const { setCartModalOpen, addToCart } = useContext(CartContext);
+    const { setCartModalOpen, addToCartBySum } = useContext(CartContext);
 
     function handleAddToCart(prod) {
-        addToCart(prod);
+        addToCartBySum(prod, 1);
         setCartModalOpen(true);
     }
 

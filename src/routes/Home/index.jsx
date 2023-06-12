@@ -4,16 +4,27 @@ import { HomepageBanner } from "../../components/HomepageBanner";
 import { HomeShopProductCard } from "../../components/ProductCard/HomeShopProductCard";
 import { Box, Stack, Typography } from "@mui/material";
 import { DefaultButton } from "../../components/DefaultButton";
-import { useMostFavoritedProducts } from "../../hooks/useProducts";
 import { useEffect, useState } from "react";
-import { CartModal } from "../../components/Modal/CartModal";
 import { Link } from "react-router-dom";
+import { api } from "../../services/api";
 
 export function Home() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        useMostFavoritedProducts().then((products) => setProducts(products));
+        const fetchData = async () => {
+            const response = await api.get("/produtos");
+
+            const filteredProducts = response.data.filter((item) => item.quantidade > 0);
+
+            const sortedProducts = [...filteredProducts].sort(
+                (a, b) => b.feedbacksPositivos - a.feedbacksPositivos
+            );
+
+            setProducts(sortedProducts.slice(0, 6));
+        };
+
+        fetchData();
     }, []);
 
     return (

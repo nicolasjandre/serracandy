@@ -37,8 +37,8 @@ const CartContextProvider = ({ children }) => {
         }, 0);
     }
 
-    const addToCartByOne = (product) => {
-        product.qtdCarrinho = 1;
+    const addToCartBySum = (product, qtd) => {
+        product.qtdCarrinho = qtd;
 
         let item = cart.find((item) => item.id === product.id);
 
@@ -46,9 +46,9 @@ const CartContextProvider = ({ children }) => {
             const updatedItem = {
                 ...item,
                 qtdCarrinho:
-                    product.quantidade == item.qtdCarrinho
-                        ? item.qtdCarrinho
-                        : parseInt(item.qtdCarrinho) + 1,
+                item.quantidade < (item.qtdCarrinho + qtd)
+                ? item.quantidade
+                : (item.qtdCarrinho + qtd)
             };
 
             setCart(cart.map((prod) => (prod.id === product.id ? updatedItem : prod)));
@@ -87,7 +87,7 @@ const CartContextProvider = ({ children }) => {
                     setCartModalOpen,
                     cart,
                     setCart,
-                    addToCart: addToCartByOne,
+                    addToCartBySum,
                     cartTotal,
                     setCartTotal,
                     addToCartByInputQuantity,

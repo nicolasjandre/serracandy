@@ -1,18 +1,40 @@
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getProductById } from "../../hooks/useProducts";
+import { useContext, useEffect, useState } from "react";
 import { Box, useMediaQuery, Link, Stack, TextField, Typography } from "@mui/material";
 import { formatPreco } from "../../utils/formatPreco";
 import { DefaultButton } from "../../components/DefaultButton";
+import { CartContext } from "../../contexts/CartContext";
+import { api } from "../../services/api";
 
 export function Produto() {
     const [product, setProduct] = useState({});
+    const { addToCartBySum, setCartModalOpen } = useContext(CartContext);
+    const [inputValue, setInputValue] = useState("1");
     const { productId } = useParams();
 
+    // @ts-ignore
+    function handleWhenInputQuantityChange(input) {
+        if (input.value <= 0) input.value = 1;
+        // @ts-ignore
+        if (input.value > product.quantidade) input.value = product.quantidade;
+
+        setInputValue(input.value);
+    }
+
+    const handleButtonClick = () => {
+        addToCartBySum(product, parseInt(inputValue));
+        setCartModalOpen(true);
+    };
+
     useEffect(() => {
-        getProductById(productId).then((product) => setProduct(product));
+        const fetchData = async () => {
+            const response = await api.get(`/produtos/${productId}`);
+            setProduct(response.data);
+        };
+
+        fetchData();
     }, []);
 
     return (
@@ -103,6 +125,7 @@ export function Produto() {
                             <Box display="flex" minHeight="40px" maxHeight="3.5vw" width="100%">
                                 <TextField
                                     id="Qtd"
+                                    onChange={(e) => handleWhenInputQuantityChange(e.target)}
                                     label="Qtd"
                                     type="number"
                                     defaultValue="1"
@@ -129,6 +152,7 @@ export function Produto() {
                                 />
 
                                 <DefaultButton
+                                    onClick={handleButtonClick}
                                     sx={{
                                         fontFamily: "Montserrat",
                                         width: "100%",
