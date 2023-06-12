@@ -57,11 +57,19 @@ export function HomeShopProductCard({ product, user }) {
                 <Typography fontFamily="Montserrat" fontSize="1.2rem">
                     {product.feedbacksPositivos} Favoritos
                 </Typography>
-                <FavoriteIcon
-                    sx={{ fontSize: "2.5rem", cursor: "pointer" }}
+                <IconButton
+                    onClick={() => handleAddToCart(product)}
                     // @ts-ignore
-                    color={user && user.favorite ? "error" : "grey"}
-                />
+                    color="orange"
+                    aria-label="Adicionar ao carrinho"
+                    sx={{ padding: "0" }}
+                >
+                    <FavoriteIcon
+                        sx={{ fontSize: "2.5rem", cursor: "pointer" }}
+                        // @ts-ignore
+                        color={user && user.favorite ? "error" : "grey"}
+                    />
+                </IconButton>
             </Box>
             <Box
                 display="flex"

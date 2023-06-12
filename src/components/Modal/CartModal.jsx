@@ -6,6 +6,7 @@ import { CartProductCard } from "../../components/ProductCard/CartProductCard";
 import { Close, ShoppingCart } from "@mui/icons-material";
 import { DefaultButton } from "../../components/DefaultButton";
 import { formatPreco } from "../../utils/formatPreco";
+import { Link } from "react-router-dom";
 
 export function CartModal() {
     const { isCartModalOpen, setCartModalOpen, cart, cartTotal } = useContext(CartContext);
@@ -77,7 +78,9 @@ export function CartModal() {
                         <Typography my="1.5rem" fontFamily="Montserrat" fontSize="1.5rem">
                             Total: {formatPreco(cartTotal)}
                         </Typography>
-                        <DefaultButton>FINALIZAR COMPRA</DefaultButton>
+                        <Link onClick={() => setCartModalOpen(false)} to="/checkout">
+                            <DefaultButton>FINALIZAR COMPRA</DefaultButton>
+                        </Link>
                     </>
                 )}
             </Box>

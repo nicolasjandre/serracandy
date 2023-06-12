@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./routes/Home";
 import { Cadastro } from "./routes/Cadastro";
 import { Login } from "./routes/Login";
@@ -14,47 +14,23 @@ import { ThemeProvider } from "@mui/material";
 import { CartContextProvider } from "./contexts/CartContext";
 import { CartModal } from "./components/Modal/CartModal";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-    },
-    {
-        path: "/cadastro",
-        element: <Cadastro />,
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/contato",
-        element: <Contato />,
-    },
-    {
-        path: "/shop",
-        element: <Shop />,
-    },
-    {
-        path: "/sobre",
-        element: <Sobre />,
-    },
-    {
-        path: "/checkout",
-        element: <Checkout />,
-    },
-    {
-        path: "/produto/:productId",
-        element: <Produto />,
-    },
-]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
             <CartContextProvider>
-                <CartModal />
-                <RouterProvider router={router} />
+                <BrowserRouter>
+                    <CartModal />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/cadastro" element={<Cadastro />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/contato" element={<Contato />} />
+                        <Route path="/shop" element={<Shop />} />
+                        <Route path="/sobre" element={<Sobre />} />
+                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/produto/:productId" element={<Produto />} />
+                    </Routes>
+                </BrowserRouter>
             </CartContextProvider>
         </ThemeProvider>
     </React.StrictMode>

@@ -46,9 +46,9 @@ const CartContextProvider = ({ children }) => {
             const updatedItem = {
                 ...item,
                 qtdCarrinho:
-                item.quantidade < (item.qtdCarrinho + qtd)
-                ? item.quantidade
-                : (item.qtdCarrinho + qtd)
+                    item.quantidade < item.qtdCarrinho + qtd
+                        ? item.quantidade
+                        : item.qtdCarrinho + qtd,
             };
 
             setCart(cart.map((prod) => (prod.id === product.id ? updatedItem : prod)));
