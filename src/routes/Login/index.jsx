@@ -17,7 +17,10 @@ export function Login() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        authenticatedUser && navigate("/");
+        Object.keys(authenticatedUser).length > 0 &&
+            authenticatedUser.constructor === Object ||
+            localStorage.getItem("serracandy@token") !== null &&
+            navigate("/");
     }, []);
 
     const handleChangeNome = (e) => {

@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <CartContextProvider>
                     <BrowserRouter>
                         <CartModal />
-                        <ToastContainer />
+                        <ToastContainer autoClose={1800} />
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/cadastro" element={<Cadastro />} />
