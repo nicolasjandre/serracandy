@@ -34,12 +34,7 @@ export function Home() {
                 <HomepageBanner imgAlt={null} />
 
                 <Box>
-                    <Typography
-                        marginY="1vw"
-                        textAlign="center"
-                        fontSize="3rem"
-                        fontFamily="Montserrat"
-                    >
+                    <Typography marginY="1vw" textAlign="center" fontSize="3rem">
                         Nossos destaques
                     </Typography>
                     <Stack
@@ -58,6 +53,7 @@ export function Home() {
                         <Link to="/shop">
                             <DefaultButton sx={{ textDecoration: "none" }}>
                                 <Typography
+                                    fontFamily="Abril Fatface"
                                     textAlign="center"
                                     fontSize="1.5vw"
                                     width="20vw"
