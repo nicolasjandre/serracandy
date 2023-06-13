@@ -6,7 +6,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { Close } from "@mui/icons-material";
 
 export function CartProductCard({ product }) {
-    const { addToCartByInputQuantity, removeProductFromCart } = useContext(CartContext);
+    const { addToCartByInputQuantity, removeProductFromCart, clearCart } = useContext(CartContext);
 
     function handleWhenInputQuantityChange(input) {
         if (input.value <= 0) input.value = 1;
@@ -18,6 +18,11 @@ export function CartProductCard({ product }) {
     function handleRemoveProductFromCart() {
         removeProductFromCart(product);
     }
+
+    function handleRemoveAll() {
+        clearCart();
+    }
+
 
     return (
         <Box display="flex" width="100%" height="100px" position="relative">

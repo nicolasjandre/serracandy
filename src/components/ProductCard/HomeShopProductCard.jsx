@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { DefaultButton } from "../DefaultButton";
