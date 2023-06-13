@@ -51,7 +51,7 @@ export function Home() {
                     >
                         {products.map((product) => (
                             // @ts-ignore
-                            <HomeShopProductCard key={product.id} product={product} user={null} />
+                            <HomeShopProductCard key={product.id} product={product} />
                         ))}
                     </Stack>
                     <Box display="flex" justifyContent="center" my="4vw">
