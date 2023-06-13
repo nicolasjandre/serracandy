@@ -6,9 +6,62 @@ import { formatPreco } from "../../utils/formatPreco";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
+import { api } from "../../services/api";
+import { AuthContext } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
+import "../../styles/LoginCadastro/style.css";
 
-export function HomeShopProductCard({ product, user }) {
+export function HomeShopProductCard({ product }) {
     const { setCartModalOpen, addToCartBySum } = useContext(CartContext);
+    const { setAuthenticatedUser, authenticatedUser } = useContext(AuthContext);
+
+    async function handleAddOrRemoveFavorite() {
+       
+        if (
+            Object.keys(authenticatedUser).length === 0 &&
+            authenticatedUser.constructor === Object &&
+            localStorage.getItem("serracandy@token") === null
+        ) {
+            console.log("ola")
+            return toast.error("Você precisa estar logado para favoritar um item.");
+        }
+
+        const alreadyFavorited = authenticatedUser.favoritos.find((id) => id === product.id);
+
+        if (alreadyFavorited) {
+            await api.patch(`/users/${authenticatedUser.id}`, {
+                ...authenticatedUser,
+                favoritos: authenticatedUser.favoritos.filter((id) => id !== product.id),
+            });
+
+            setAuthenticatedUser({
+                ...authenticatedUser,
+                favoritos: authenticatedUser.favoritos.filter((id) => id !== product.id),
+            });
+
+            await api.patch(`/produtos/${product.id}`, {
+                ...product,
+                favoritos: product.favoritos--,
+            });
+        } else {
+            const updatedFavoritos = [...authenticatedUser.favoritos, product.id];
+
+            await api.patch(`/users/${authenticatedUser.id}`, {
+                ...authenticatedUser,
+                favoritos: updatedFavoritos,
+            });
+
+            setAuthenticatedUser({
+                ...authenticatedUser,
+                favoritos: updatedFavoritos,
+            });
+
+            await api.patch(`/produtos/${product.id}`, {
+                ...product,
+                favoritos: product.favoritos++,
+            });
+        }
+    }
 
     function handleAddToCart(prod) {
         addToCartBySum(prod, 1);
@@ -55,10 +108,10 @@ export function HomeShopProductCard({ product, user }) {
                 width="100%"
             >
                 <Typography fontFamily="Montserrat" fontSize="1.2rem">
-                    {product.feedbacksPositivos} Favoritos
+                    {product.favoritos} Favoritos
                 </Typography>
                 <IconButton
-                    onClick={() => handleAddToCart(product)}
+                    onClick={() => handleAddOrRemoveFavorite()}
                     // @ts-ignore
                     color="orange"
                     aria-label="Adicionar ao carrinho"
@@ -67,7 +120,13 @@ export function HomeShopProductCard({ product, user }) {
                     <FavoriteIcon
                         sx={{ fontSize: "2.5rem", cursor: "pointer" }}
                         // @ts-ignore
-                        color={user && user.favorite ? "error" : "grey"}
+                        color={
+                            authenticatedUser &&
+                            authenticatedUser.favoritos &&
+                            authenticatedUser.favoritos.find((id) => id === product.id)
+                                ? "error"
+                                : "grey"
+                        }
                     />
                 </IconButton>
             </Box>

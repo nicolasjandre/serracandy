@@ -1,0 +1,279 @@
+{
+  "users": [
+    {
+      "nome": "Raphael Rocha",
+      "email": "raphaelrochap@gmail.com",
+      "password": "$2a$10$SBSfree4ybtT64HIPDWcl.TV2dx2RwuWA8203QjMTWj2QSnxtBvYC",
+      "favoritos": [],
+      "id": 1
+    },
+    {
+      "nome": "Nicolas Jandre",
+      "email": "nicolasjandre@live.com",
+      "password": "$2a$10$JHomlVpHyqK3MiubF4WnkO6c4JTg8EB6pX0kN6PgzihIcXSkXffYm",
+      "favoritos": [
+        1,
+        2
+      ],
+      "id": 2
+    },
+    {
+      "email": "romario@live.com",
+      "password": "$2a$10$k75SkTfZaen05zKBb5KOs.EDCTWdhNtEFpF4a0wAVOZcWhNfIlTgK",
+      "nome": "Romario",
+      "favoritos": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "id": 3
+    },
+    {
+      "email": "nicolas1jandre@live.com",
+      "password": "$2a$10$BTNFh3ABBDdLpL6Gi6ge0ueDakKQIP34KTZ0t3pFG3iI8gcmiTh2O",
+      "nome": "Nicolas Jandre",
+      "favoritos": [],
+      "id": 4
+    }
+  ],
+  "produtos": [
+    {
+      "imgAlt": "",
+      "imgUrl": "https://harald.com.br/wp-content/uploads/2020/04/brigadeiro-gourmet-melken-1950x1300-1.jpg",
+      "id": 1,
+      "nome": "Brigadeiro",
+      "preco": 2.5,
+      "quantidade": 15,
+      "descricao": "Um doce tradicional brasileiro",
+      "favoritos": 30,
+      "feedbacksNegativos": 10
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=803&q=80",
+      "id": 2,
+      "nome": "Bolo de Chocolate",
+      "preco": 15,
+      "quantidade": 25,
+      "descricao": "Um bolo úmido e saboroso",
+      "favoritos": 41,
+      "feedbacksNegativos": 12
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://blog.nakednuts.com.br/wp-content/uploads/2020/12/pave-de-amendoim-1024x697.jpg",
+      "id": 3,
+      "nome": "Pavê de Amendoim",
+      "preco": 12.9,
+      "quantidade": 8,
+      "descricao": "Um doce com camadas de biscoito, amendoim e creme",
+      "favoritos": 20,
+      "feedbacksNegativos": 7
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Torta_de_limao.jpg",
+      "id": 4,
+      "nome": "Torta de Limão",
+      "preco": 18.5,
+      "quantidade": 10,
+      "descricao": "Uma torta refrescante com recheio de limão",
+      "favoritos": 36,
+      "feedbacksNegativos": 9
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://www.receitasnestle.com.br/sites/default/files/srh_recipes/a7e0cd2ad28375c69f8b96c7dfc91645.jpg",
+      "id": 5,
+      "nome": "Pão de Mel",
+      "preco": 3,
+      "quantidade": 20,
+      "descricao": "Um doce macio e aromático com recheio de doce de leite",
+      "favoritos": 26,
+      "feedbacksNegativos": 8
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://static.itdg.com.br/images/1200-675/59e079217cc8af8291a8cb910d1d449f/318825-original.jpg",
+      "id": 6,
+      "nome": "Pudim de Leite",
+      "preco": 8.9,
+      "quantidade": 12,
+      "descricao": "Um clássico da sobremesa brasileira",
+      "favoritos": 50,
+      "feedbacksNegativos": 15
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://benditosalgado.com.br/wp-content/uploads/2020/06/Torta-Sonho-de-Valsa.jpg",
+      "id": 7,
+      "nome": "Torta de Sonho de Valsa",
+      "preco": 249.99,
+      "quantidade": 30,
+      "descricao": "Bombom recheado com castanhas e coberto de chocolate",
+      "favoritos": 49,
+      "feedbacksNegativos": 11
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://www.receitasnestle.com.br/sites/default/files/srh_recipes/8fafc3935c766bf8c9f1331a325e48a9.jpg",
+      "id": 8,
+      "nome": "Cheesecake",
+      "preco": 22,
+      "quantidade": 5,
+      "descricao": "Uma torta de cream cheese com cobertura de frutas",
+      "favoritos": 15,
+      "feedbacksNegativos": 7
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://www.confeiteiradesucesso.com/wp-content/uploads/2018/10/cupcakedebaunilha.jpg",
+      "id": 9,
+      "nome": "Cupcake de Baunilha",
+      "preco": 4.5,
+      "quantidade": 18,
+      "descricao": "Um bolinho fofo e decorado com creme",
+      "favoritos": 28,
+      "feedbacksNegativos": 9
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://gelattmix.com/images/Blog/flocos.jpg   ",
+      "id": 10,
+      "nome": "Sorvete de Flocos",
+      "preco": 6,
+      "quantidade": 15,
+      "descricao": "Um sorvete cremoso com pedacinhos de chocolate",
+      "favoritos": 20,
+      "feedbacksNegativos": 7
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://avidadoce.com/wp-content/uploads/2017/04/receita-de-brownie-de-chocolate.jpg",
+      "id": 11,
+      "nome": "Brownie de Chocolate",
+      "preco": 7.5,
+      "quantidade": 10,
+      "descricao": "Um brownie denso e rico em chocolate",
+      "favoritos": 35,
+      "feedbacksNegativos": 11
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://www.receitasnestle.com.br/sites/default/files/srh_recipes/efbe0e7c5f30121a83f2565fc97e0b07.jpg",
+      "id": 12,
+      "nome": "Torta de Morango",
+      "preco": 20,
+      "quantidade": 8,
+      "descricao": "Uma torta com camadas de massa crocante e morangos frescos",
+      "favoritos": 30,
+      "feedbacksNegativos": 9
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://pt.petitchef.com/imgupl/recipe/bombom-de-caramelo-salgado-e-amendoas--455169p706660.jpg",
+      "id": 13,
+      "nome": "Bombom de Caramelo",
+      "preco": 1.8,
+      "quantidade": 25,
+      "descricao": "Bombom com recheio cremoso de caramelo",
+      "favoritos": 15,
+      "feedbacksNegativos": 7
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://docepedia.com/wp-content/uploads/2021/12/torta-maca-p.jpg",
+      "id": 14,
+      "nome": "Torta de Maçã",
+      "preco": 16.5,
+      "quantidade": 12,
+      "descricao": "Uma torta com maçãs frescas e canela",
+      "favoritos": 25,
+      "feedbacksNegativos": 8
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://naminhapanela.com/wp-content/uploads/2021/04/Beijinho-de-coco-4-720x720.jpg",
+      "id": 15,
+      "nome": "Beijinho",
+      "preco": 1.2,
+      "quantidade": 30,
+      "descricao": "Um doce de coco em formato de bolinha",
+      "favoritos": 40,
+      "feedbacksNegativos": 12
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://i.ytimg.com/vi/oS11S-H43pw/maxresdefault.jpg",
+      "id": 16,
+      "nome": "Mousse de Maracujá",
+      "preco": 5.5,
+      "quantidade": 20,
+      "descricao": "Uma sobremesa leve e refrescante",
+      "favoritos": 35,
+      "feedbacksNegativos": 9
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://t1.uc.ltmcdn.com/pt/posts/2/4/0/como_fazer_bem_casado_20042_orig.jpg",
+      "id": 17,
+      "nome": "Bem-casado",
+      "preco": 3.8,
+      "quantidade": 15,
+      "descricao": "Um doce tradicional de casamento",
+      "favoritos": 50,
+      "feedbacksNegativos": 15
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://i.ytimg.com/vi/kf2RWtoV4f0/maxresdefault.jpg",
+      "id": 18,
+      "nome": "Torta de Limão com Merengue",
+      "preco": 25,
+      "quantidade": 7,
+      "descricao": "Uma torta com recheio de limão e cobertura de merengue",
+      "favoritos": 45,
+      "feedbacksNegativos": 11
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://vovopalmirinha.com.br/wp-content/uploads/2019/06/pao-de-queijo.jpg",
+      "id": 19,
+      "nome": "Pão de Queijo",
+      "preco": 3.5,
+      "quantidade": 30,
+      "descricao": "Uma delícia mineira com massa de queijo",
+      "favoritos": 20,
+      "feedbacksNegativos": 7
+    },
+    {
+      "imgAlt": "",
+      "imgUrl": "https://www.cozinhatecnica.com/wp-content/uploads/2019/10/receita-de-tiramisu-pexels-min-che-6880219.jpg",
+      "id": 20,
+      "nome": "Tiramisu",
+      "preco": 28,
+      "quantidade": 10,
+      "descricao": "Uma sobremesa italiana com camadas de biscoito, café e mascarpone",
+      "favoritos": 40,
+      "feedbacksNegativos": 12
+    }
+  ],
+  "pedidos": [
+    {
+      "itens": [
+        {
+          "idProduto": 1,
+          "quantidade": 2
+        },
+        {
+          "idProduto": 2,
+          "quantidade": 2
+        }
+      ],
+      "valorTotal": 4.2,
+      "idUser": 1,
+      "id": 1
+    }
+  ]
+}
