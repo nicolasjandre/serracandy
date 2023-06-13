@@ -11,8 +11,8 @@ export function Footer() {
         <div className="footer">
             <div className='emailList'>
                 <div className='email'>
-                    <h2>JOIN OUR MAILING LIST</h2>
-                    <input type="email" placeholder='Your Email' />
+                    <h2>NEWSLETTER</h2>
+                    <input type="email" placeholder='Email para contato'/>
                     <button className='send'><SendIcon /></button>
                 </div>
 
@@ -28,20 +28,20 @@ export function Footer() {
             <div className='footerBottom'>
                 <div className='brand'>
                     <h2>Luna</h2>
-                    <span>the artisanal experience you deserve</span>
+                    <span>A experiência artesanal que você merece</span>
                 </div>
                 <div className='company'>
                     <ul>
-                        <li className='companyLinks'>About</li>
-                        <li className='companyLinks'>Jobs</li>
-                        <li className='companyLinks'>Events</li>
+                        <li className='companyLinks'>Sobre</li>
+                        <li className='companyLinks'>Trabalhe Conosco</li>
+                        <li className='companyLinks'>Eventos</li>
                     </ul>
                 </div>
                 <div className='terms'>
                     <ul>
-                        <li className='termsLiks'>Terms and conditions</li>
-                        <li className='termsLiks'>privacy policy</li>
-                        <li className='termsLiks'>cookie policy</li>
+                        <li className='termsLiks'>Termos e Condições</li>
+                        <li className='termsLiks'>Política de Privacidade</li>
+                        <li className='termsLiks'>Política de Cookies</li>
                     </ul>
                 </div>
             </div>
