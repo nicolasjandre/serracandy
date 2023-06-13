@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Divider, Drawer, IconButton, Stack, Typography } from "@mui/material";
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";

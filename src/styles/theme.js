@@ -21,7 +21,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: "Abril Fatface",
+        fontFamily: "Montserrat",
     },
 });
 
