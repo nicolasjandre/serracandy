@@ -10,7 +10,7 @@
         {
             "nome": "Nicolas Jandre",
             "email": "nicolasjandre@live.com",
-            "password": "$2a$10$JHomlVpHyqK3MiubF4WnkO6c4JTg8EB6pX0kN6PgzihIcXSkXffYm",
+            "password": "$2a$10$JHomlVpHyqK3iubF4WnkO6c4JTg8EB6pX0kN6PgzihIcXSkXffYm",
             "favoritos": [1, 2],
             "id": 2
         },

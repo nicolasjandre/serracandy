@@ -214,7 +214,7 @@ export function Checkout() {
     const { clearCart } = useContext(CartContext);
     return (
         <CartContextProvider>
-            <Header />
+            <Header/>
             <CarrinhoCompras handleRemoveAll={clearCart} />
             <Footer />
         </CartContextProvider>
