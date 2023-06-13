@@ -1,13 +1,18 @@
 // @ts-nocheck
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { CartContext } from '../../contexts/CartContext';
+import { CartContext, CartContextProvider } from '../../contexts/CartContext';
 import { formatPreco } from '../../utils/formatPreco';
 import { DefaultButton } from '../../components/DefaultButton';
+import { api } from "../../services/api";
+import { AuthContext } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
   palette: {
@@ -29,11 +34,37 @@ const theme = createTheme({
   },
 });
 
-
-function CarrinhoCompras() {
-  const { isCartModalOpen, setCartModalOpen, cart, cartTotal } = useContext(CartContext);
+function CarrinhoCompras({ handleRemoveAll }) {
+  const { cart, cartTotal } = useContext(CartContext);
+  const { authenticatedUser, setAuthenticatedUser } = useContext(AuthContext);
+  const [pedidos, setPedidos] = useState(authenticatedUser.pedidos || []);
   const [cupom, setCupom] = useState('');
+  const navigate = useNavigate();
   const frete = 22.70;
+
+  useEffect(() => {
+    setPedidos(authenticatedUser.pedidos || []);
+  }, [authenticatedUser]);
+
+  useEffect(() => {
+    if (
+      (Object.keys(authenticatedUser).length === 0 &&
+          authenticatedUser.constructor === Object) ||
+      localStorage.getItem("serracandy@token") === null
+    ) {
+        navigate("/login");
+        toast.error('Você precisa estar logado para finalizar a compra!')
+    }
+  }, [])
+
+  async function adicionarPedido(novoPedido) {
+    const updatedUser = { ...authenticatedUser };
+    updatedUser.pedidos = [...(updatedUser.pedidos || []), novoPedido];
+    await api.patch(`/users/${authenticatedUser.id}`, {
+      pedidos: updatedUser.pedidos,
+    });
+    setAuthenticatedUser(updatedUser);
+  }
 
   const aplicarDesconto = () => {
     if (cupom === 'SERRATEC10') {
@@ -46,8 +77,41 @@ function CarrinhoCompras() {
     setCupom(event.target.value);
   };
 
+  async function atualizarEstoque(produto) {
+    
+    await api.patch(`/produtos/${produto.id}`, {
+      quantidade: produto.quantidade - produto.qtdCarrinho,
+    });
+    
+  }
+
+  const handleFinalizarCompra = async () => {
+    const novoPedido = {
+      itens: cart.map((item) => ({ idProduto: item.id, quantidade: item.qtdCarrinho })),
+      frete,
+      desconto: parseInt(((cartTotal - aplicarDesconto()).toFixed(2))),
+      valorTotal: (aplicarDesconto() + frete),
+      idUser: authenticatedUser.id,
+      id: pedidos.length + 1,
+    };
+
+    await adicionarPedido(novoPedido);
+    await cart.forEach(produto => {
+      atualizarEstoque(produto)
+      
+    });
+    toast.success('Compra finalizada com sucesso!')
+    handleRemoveAll()
+    navigate('/');
+    
+  };
+
+  async function finalizarCompra() {
+    await handleFinalizarCompra();
+  }
+
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ mb: '70px' }}>
       <Grid container spacing={2}>
         <Grid item xs={7}>
           <Typography variant="h4" display="flex" justifyContent="center" align="center" alignItems="center" sx={{ mb: 2.5 }}>
@@ -115,7 +179,7 @@ function CarrinhoCompras() {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <DefaultButton sx={{ width: "100%" }} >
+                <DefaultButton sx={{ width: "100%" }} onClick={finalizarCompra} >
                   Finalizar Compra
                 </DefaultButton>
               </Grid>
@@ -128,11 +192,12 @@ function CarrinhoCompras() {
 }
 
 export function Checkout() {
+  const { clearCart } = useContext(CartContext)
   return (
-    <>
+    <CartContextProvider>
       <Header />
-      <CarrinhoCompras />
+      <CarrinhoCompras handleRemoveAll={clearCart} />
       <Footer />
-    </>
+    </CartContextProvider>
   );
 }

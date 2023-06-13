@@ -9,6 +9,11 @@ const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     const [isCartInitialized, setCartInitialized] = useState(false);
+    
+    function clearCart() {
+        setCart([]);
+        localStorage.removeItem("serracandy@cart");
+      };
 
     useEffect(() => {
         const storedCart = localStorage.getItem("serracandy@cart");
@@ -92,6 +97,7 @@ const CartContextProvider = ({ children }) => {
                     setCartTotal,
                     addToCartByInputQuantity,
                     removeProductFromCart,
+                    clearCart
                 }
             }
         >

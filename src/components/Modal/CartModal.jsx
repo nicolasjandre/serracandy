@@ -27,6 +27,7 @@ export function CartModal() {
             }}
             anchor="right"
             open={isCartModalOpen}
+            onClose={handleCloseModal}
         >
             <Box display="flex" flexDirection="column" alignItems="center" p="1.3rem">
                 <IconButton
