@@ -76,6 +76,9 @@ export function Cadastro() {
         <>
             <Header />
             <div className="tela-completa">
+                <div className="img">
+                    <img src="../../public/images/bolos-padaria.png" alt="Bolos de Padaria" />
+                </div>
                 <div className="tela-completa-form">
                     <h2>Cadastro</h2>
                     <form className="form" onSubmit={handleSubmitForm}>
@@ -107,9 +110,6 @@ export function Cadastro() {
                             </Typography>
                         </DefaultButton>
                     </form>
-                </div>
-                <div className="img">
-                    <img src="../../public/images/bolos-padaria.png" alt="Bolos de Padaria" />
                 </div>
             </div>
             <Footer />

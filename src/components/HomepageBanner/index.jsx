@@ -17,10 +17,10 @@ export function HomepageBanner({ imgAlt }) {
                 src="images/home.jpg"
             />
             <Box textAlign="center" position="absolute" bottom="27.5%">
-                <Typography fontFamily="Abril Fatface" lineHeight="11.9vw" color="white" fontSize="8.1vw" letterSpacing="4px">
+                <Typography lineHeight="11.9vw" color="white" fontSize="8.1vw" letterSpacing="4px">
                     DOCES
                 </Typography>
-                <Typography fontFamily="Abril Fatface" color="white" fontSize="1.3vw" letterSpacing="2px" mb="3.5vw">
+                <Typography color="white" fontSize="1.3vw" letterSpacing="2px" mb="3.5vw">
                     OS MELHORES DA SERRA
                 </Typography>
                 <Link to="/shop">
