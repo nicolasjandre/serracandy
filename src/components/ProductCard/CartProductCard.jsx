@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, IconButton, TextField, Typography } from "@mui/material";
 import { formatPreco } from "../../utils/formatPreco";
 import { useContext } from "react";

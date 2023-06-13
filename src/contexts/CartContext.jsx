@@ -15,11 +15,11 @@ const CartContextProvider = ({ children }) => {
 
         if (storedCart) {
             setCart(JSON.parse(storedCart));
-            setCartInitialized(true);
-
+            
             const total = getCartTotal(JSON.parse(storedCart));
             setCartTotal(total);
         }
+        setCartInitialized(true);
     }, []);
 
     useEffect(() => {
