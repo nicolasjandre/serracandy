@@ -92,6 +92,7 @@ export function Produto() {
                             px="20px"
                             fontSize="clamp(1.5rem, 4vw, 2rem)"
                             textAlign="center"
+                            fontFamily="Montserrat"
                         >
                             {
                                 // @ts-ignore
@@ -102,25 +103,22 @@ export function Produto() {
                             px="20px"
                             fontSize="clamp(.6rem, 2.5vw, 1.5rem)"
                             textAlign="center"
+                            fontFamily="Montserrat"
                         >
                             {
                                 // @ts-ignore
                                 product.descricao
                             }
                         </Typography>
-                        <Typography fontSize="clamp(1rem, 3vw, 2rem)" textAlign="center">
+                        <Typography
+                            fontSize="clamp(1rem, 3vw, 2rem)"
+                            textAlign="center"
+                            fontFamily="Montserrat"
+                        >
                             {formatPreco(
                                 // @ts-ignore
                                 product.preco
                             )}
-                        </Typography>
-                        <Typography fontSize="clamp(.6rem, 1.5vw, 1rem)" textAlign="center">
-                            Restam{"  "}
-                            {
-                                // @ts-ignore
-                                product.quantidade
-                            }{" "}
-                            em estoque
                         </Typography>
 
                         <Box height="100%" display="flex" justifyContent="center" alignItems="end">
@@ -173,3 +171,5 @@ export function Produto() {
         </>
     );
 }
+
+// Marlon

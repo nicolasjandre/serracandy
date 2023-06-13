@@ -31,12 +31,9 @@
     },
     {
       "email": "nicolas1jandre@live.com",
-      "password": "$2a$10$hNQtP4Ef/18GGh/jInTu6ufyLqgD24dhGKb1n7fVvGvCOhYfnZ992",
+      "password": "$2a$10$BTNFh3ABBDdLpL6Gi6ge0ueDakKQIP34KTZ0t3pFG3iI8gcmiTh2O",
       "nome": "Nicolas Jandre",
-      "favoritos": [
-        2,
-        5
-      ],
+      "favoritos": [],
       "id": 4
     },
     {
@@ -67,8 +64,9 @@
       "preco": 2.5,
       "quantidade": 20,
       "descricao": "Um doce tradicional brasileiro",
-      "favoritos": 31,
-      "feedbacksNegativos": 10
+      "favoritos": 29,
+      "feedbacksNegativos": 10,
+      "qtdCarrinho": 1
     },
     {
       "imgAlt": "",
