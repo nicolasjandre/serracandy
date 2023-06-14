@@ -62,8 +62,8 @@ export function Pedidos() {
 
     React.useEffect(() => {
         if (
-            (Object.keys(authenticatedUser).length === 0 &&
-                authenticatedUser.constructor === Object) &&
+            Object.keys(authenticatedUser).length === 0 &&
+            authenticatedUser.constructor === Object &&
             localStorage.getItem("serracandy@token") === null
         ) {
             toast.error("Você precisa estar autenticado para acessar os seus pedidos");
@@ -96,7 +96,8 @@ export function Pedidos() {
                             </TableHead>
                             <TableBody>
                                 {authenticatedUser.pedidos &&
-                                    authenticatedUser.pedidos.sort((a, b) => a.id < b.id ? 1 : -1)
+                                    authenticatedUser.pedidos
+                                        .sort((a, b) => (a.id < b.id ? 1 : -1))
                                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         .map((row) => {
                                             return (
@@ -141,6 +142,7 @@ export function Pedidos() {
                     </TableContainer>
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 20]}
+                        labelRowsPerPage="Doces por página:"
                         component="div"
                         count={authenticatedUser.pedidos ? authenticatedUser.pedidos.length : 0}
                         rowsPerPage={rowsPerPage}
