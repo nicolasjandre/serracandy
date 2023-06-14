@@ -50,9 +50,6 @@ export function Cadastro() {
                 favoritos: [],
             });
 
-            console.log(response.data);
-
-            // @ts-ignore
             localStorage.setItem(`serracandy@token`, JSON.stringify(response.data.accessToken));
 
             setAuthenticatedUser(response.data.user);

@@ -15,7 +15,7 @@
             "id": 2,
             "nome": "Bolo de Chocolate",
             "preco": 15,
-            "quantidade": 3,
+            "quantidade": 10,
             "descricao": "Um bolo úmido e saboroso",
             "favoritos": 42
         },
@@ -42,7 +42,7 @@
             "id": 5,
             "nome": "Pão de Mel",
             "preco": 3,
-            "quantidade": 11,
+            "quantidade": 7,
             "descricao": "Um doce macio e aromático com recheio de doce de leite",
             "favoritos": 26
         },
