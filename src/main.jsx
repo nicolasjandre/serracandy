@@ -16,6 +16,8 @@ import { Produto } from "./routes/Produto";
 import { Shop } from "./routes/Shop";
 import { Sobre } from "./routes/Sobre";
 import theme from "./styles/theme";
+import { Pedidos } from "./routes/Pedidos";
+import { PedidoId } from "./routes/PedidoId";
 
 const Wrapper = ({ children }) => {
     const location = useLocation();
@@ -43,6 +45,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                                 <Route path="/sobre" element={<Sobre />} />
                                 <Route path="/checkout" element={<Checkout />} />
                                 <Route path="/produto/:productId" element={<Produto />} />
+                                <Route path="/pedidos/:pedidoId" element={<PedidoId />} />
+                                <Route path="/pedidos" element={<Pedidos />} />
                             </Routes>
                         </Wrapper>
                     </BrowserRouter>

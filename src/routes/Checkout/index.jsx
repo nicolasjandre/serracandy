@@ -13,6 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { ProductCheckoutCard } from "../../components/ProcutCheckoutCard";
 
 const theme = createTheme({
     palette: {
@@ -37,14 +38,19 @@ const theme = createTheme({
 function CarrinhoCompras({ handleRemoveAll }) {
     const { cart, cartTotal } = useContext(CartContext);
     const { authenticatedUser, setAuthenticatedUser } = useContext(AuthContext);
-    const [pedidos, setPedidos] = useState(authenticatedUser.pedidos || []);
+    const [pedidos, setPedidos] = useState([]);
     const [cupom, setCupom] = useState("");
     const navigate = useNavigate();
     const frete = 22.7;
 
     useEffect(() => {
-        setPedidos(authenticatedUser.pedidos || []);
-    }, [authenticatedUser]);
+        const fetchPedidosDb = async () => {
+            const response = await api.get("/pedidos");
+            setPedidos(response.data);
+        };
+
+        fetchPedidosDb();
+    }, []);
 
     useEffect(() => {
         if (
@@ -60,9 +66,13 @@ function CarrinhoCompras({ handleRemoveAll }) {
     async function adicionarPedido(novoPedido) {
         const updatedUser = { ...authenticatedUser };
         updatedUser.pedidos = [...(updatedUser.pedidos || []), novoPedido];
+
         await api.patch(`/users/${authenticatedUser.id}`, {
             pedidos: updatedUser.pedidos,
         });
+
+        await api.post("/pedidos", novoPedido);
+
         setAuthenticatedUser(updatedUser);
     }
 
@@ -91,6 +101,7 @@ function CarrinhoCompras({ handleRemoveAll }) {
             valorTotal: aplicarDesconto() + frete,
             idUser: authenticatedUser.id,
             id: pedidos.length + 1,
+            data: new Date(),
         };
 
         await adicionarPedido(novoPedido);
@@ -99,7 +110,7 @@ function CarrinhoCompras({ handleRemoveAll }) {
         });
         toast.success("Compra finalizada com sucesso!");
         handleRemoveAll();
-        navigate("/");
+        navigate("/pedidos");
     };
 
     async function finalizarCompra() {
@@ -124,34 +135,7 @@ function CarrinhoCompras({ handleRemoveAll }) {
                 </Grid>
                 <Grid item xs={7}>
                     {cart.map((item) => (
-                        <Paper key={item.id} sx={{ p: 2, mb: 2 }}>
-                            <Grid container spacing={2}>
-                                <Grid item xs={3}>
-                                    <img
-                                        src={item.imgUrl}
-                                        alt={item.nome}
-                                        style={{ width: "120px" }}
-                                    />
-                                </Grid>
-                                <Grid item xs={9}>
-                                    <div
-                                        style={{
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            alignItems: "flex-end",
-                                        }}
-                                    >
-                                        <Typography variant="h6">{item.nome}</Typography>
-                                        <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                                            {formatPreco(item.preco)} unidade
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ mt: 1 }}>
-                                            Quantidade: {item.qtdCarrinho}
-                                        </Typography>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Paper>
+                        <ProductCheckoutCard key={item.id} item={item} />
                     ))}
                 </Grid>
                 <Grid item xs={5}>
@@ -214,7 +198,7 @@ export function Checkout() {
     const { clearCart } = useContext(CartContext);
     return (
         <CartContextProvider>
-            <Header/>
+            <Header />
             <CarrinhoCompras handleRemoveAll={clearCart} />
             <Footer />
         </CartContextProvider>

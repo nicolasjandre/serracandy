@@ -81,7 +81,7 @@ export function Login() {
                             <input type="password" value={password} onChange={handleChangeSenha} />
                         </div>
                         <div className="links">
-                            <Link className="link" to="/sobre">
+                            <Link className="link" to="#">
                                 Recuperar senha
                             </Link>
                             <Link className="link" to="/cadastro">
