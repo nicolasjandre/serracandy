@@ -5,6 +5,7 @@ const Search = ({ produtos, setProdutos }) => {
         const prodOrdenados = produtos.filter((produto) =>
             produto.nome.toLowerCase().includes(busca.toLowerCase())
         );
+
         setProdutos(prodOrdenados);
     }
 
