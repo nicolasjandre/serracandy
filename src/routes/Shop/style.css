@@ -1,5 +1,5 @@
 .shop {
-    padding: 120px;
+    padding: 50px 120px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     justify-items: center; 

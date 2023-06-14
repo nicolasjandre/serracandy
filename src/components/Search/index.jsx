@@ -1,3 +1,5 @@
+import './style.css';
+
 const Search = ({ produtos, setProdutos }) => {
 
     function filtrarPorNome( busca ) {
@@ -7,10 +9,10 @@ const Search = ({ produtos, setProdutos }) => {
 
     return (
         <div className="seacrhInput">
-            <h1>Nosso Doces:</h1>
+            <h1 className='titulo'>Nossos Doces</h1>
             <input 
                 type="text" 
-                placeholder='Busca' 
+                placeholder='Pesquisa' 
                 onChange={(e) => filtrarPorNome(e.target.value)} 
             />
         </div>
