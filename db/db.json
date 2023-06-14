@@ -15,7 +15,7 @@
             "id": 2,
             "nome": "Bolo de Chocolate",
             "preco": 15,
-            "quantidade": 0,
+            "quantidade": 10,
             "descricao": "Um bolo úmido e saboroso",
             "favoritos": 42
         },
