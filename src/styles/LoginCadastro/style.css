@@ -14,7 +14,7 @@
 
 .img img {
     width: 802px;
-    height: auto;
+    height: 100%;
 }
 
 .tela-completa-form {
@@ -24,7 +24,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3.5px;
 }
 
 .campo-form {
@@ -45,6 +44,7 @@
     letter-spacing: 1px;
     font-size: 15px;
     padding-left: 4px;
+    opacity: 1;
 }
 
 .links {

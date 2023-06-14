@@ -42,7 +42,7 @@ export function CartProductCard({ product }) {
                     width: "100px",
                     transitionDuration: "250ms",
                 }}
-                alt={product.imgAlt}
+                alt={product.nome}
                 src={product.imgUrl ? product.imgUrl : "public/images/noimage.png"}
             />
             <Box

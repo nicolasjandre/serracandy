@@ -27,8 +27,8 @@ export function Footer() {
             </div>
             <div className='footerBottom'>
                 <div className='brand'>
-                    <h2>Luna</h2>
-                    <span>A experiência artesanal que você merece</span>
+                    <h2>Serracandy</h2>
+                    <span>A experiência gourmet que você merece</span>
                 </div>
                 <div className='company'>
                     <ul>

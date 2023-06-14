@@ -83,7 +83,7 @@ export function HomeShopProductCard({ product }) {
                         cursor: "pointer",
                         transitionDuration: "250ms",
                     }}
-                    alt={product.imgAlt}
+                    alt={product.nome}
                     src={product.imgUrl ? product.imgUrl : "public/images/noimage.png"}
                 />
             </Link>
